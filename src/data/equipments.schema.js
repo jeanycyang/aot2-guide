@@ -7,7 +7,7 @@ export const TYPES = {
 export default {
   id: 1,
   type: TYPES.BLADE,
-  name: "English Name Here",
+  name: 'English Name Here',
   material1: 1, // material id
   material1Quantity: 10,
   material2: 2,

@@ -8,7 +8,7 @@ export const RANKS = {
 
 export default {
   id: 1,
-  name: "English Name Here",
+  name: 'English Name Here',
   rank: RANKS.D,
   buyPrice: 81000,
   sellPrice: 87,
