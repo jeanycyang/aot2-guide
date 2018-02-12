@@ -1,0 +1,26 @@
+{
+  "name": "aot2-guide",
+  "version": "0.1.0",
+  "description": "Koei game \"Attack on Titan 2\"(2018) Material Collecting Guide UNOFFICIAL",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanycyang/aot2-guide.git"
+  },
+  "keywords": [
+    "game",
+    "aot2",
+    "aot",
+    "vue",
+    "vue2"
+  ],
+  "author": "Jean Yang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeanycyang/aot2-guide/issues"
+  },
+  "homepage": "https://github.com/jeanycyang/aot2-guide#readme"
+}
