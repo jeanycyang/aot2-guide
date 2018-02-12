@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main id="main">
     <navbar></navbar>
-    <nuxt/>
+    <nuxt id="page"/>
     <bottom-footer></bottom-footer>
   </main>
 </template>
