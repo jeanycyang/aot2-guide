@@ -1,14 +1,6 @@
 <template>
   <main>
-    <header class="top-header">
-      <ul class="navbar">
-        <li class="navbar-item"><a href="/">Home</a></li>
-        <li class="navbar-item">Missions</li>
-        <li class="navbar-item">Materials</li>
-        <li class="navbar-item">Characters</li>
-        <li class="navbar-item"><a href="/skills">Skills</a></li>
-      </ul>
-    </header>
+    <navbar></navbar>
     <nuxt/>
     <footer>
       <p><a href="http://www.gamecity.ne.jp/shingeki2/">All Materials Belong to Koei Tecmo.</a></p>
@@ -18,9 +10,13 @@
   </main>
 </template>
 <script>
-import logo from '~/assets/images/logo.png'
+import logo from '../assets/images/logo.png'
+import navbar from '../components/navbar.vue'
 
 export default {
+  components: {
+    navbar,
+  },
   head() {
     return {
       title: 'Attack on Titan 2 Guide',
