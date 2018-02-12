@@ -1,9 +1,17 @@
 <template>
   <main>
-    <header>Home | Materials | Missions | Characters</header>
+    <header>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li>Missions</li>
+        <li>Materials</li>
+        <li>Characters</li>
+        <li><a href="/skills">Skills</a></li>
+      </ul>
+    </header>
     <nuxt/>
     <footer>
-      <p>All Materials Belong to Koei Tecmo.</p>
+      <p><a href="http://www.gamecity.ne.jp/shingeki2/">All Materials Belong to Koei Tecmo.</a></p>
       <p>This site is UNOFFICIAL and just made for personal use.</p>
       <p><a href="https://github.com/jeanycyang/aot2-guide/">Github</a></p>
     </footer>
