@@ -2,6 +2,7 @@
   <div>
     <h1>{{ name }}</h1>
     <p>{{ description }}</p>
+    <a href="/skills">Back to Skills</a>
   </div>
 </template>
 <script>
