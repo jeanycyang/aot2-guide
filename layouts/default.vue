@@ -38,13 +38,5 @@ export default {
 }
 </script>
 <style>
-.top-header{
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
-}
-.navbar{
-  display: flex;
-}
-.navbar-item{
-  flex: 1;
-}
+@import './default.css';
 </style>

@@ -1,0 +1,22 @@
+@import '~reset-css/reset.css';
+
+:root{
+  --mainColor: #E0CD8D;
+}
+
+p{
+  color: var(--mainColor);
+}
+
+.top-header{
+  height: 40px;
+  box-shadow: 0 0 2px black;
+}
+.navbar{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.navbar-item{
+}
