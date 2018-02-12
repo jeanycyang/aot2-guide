@@ -16,5 +16,12 @@ export default {
     const skill = SKILLS[this.$route.params.name]
     return { name: skill.name, description: skill.description }
   },
+  head() {
+    return {
+      title: `${this.name} - Skills - Attack on Titan 2 Guide`,
+      meta: [
+      ],
+    }
+  },
 }
 </script>
