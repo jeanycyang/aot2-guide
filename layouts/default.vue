@@ -1,12 +1,12 @@
 <template>
   <main>
-    <header>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li>Missions</li>
-        <li>Materials</li>
-        <li>Characters</li>
-        <li><a href="/skills">Skills</a></li>
+    <header class="top-header">
+      <ul class="navbar">
+        <li class="navbar-item"><a href="/">Home</a></li>
+        <li class="navbar-item">Missions</li>
+        <li class="navbar-item">Materials</li>
+        <li class="navbar-item">Characters</li>
+        <li class="navbar-item"><a href="/skills">Skills</a></li>
       </ul>
     </header>
     <nuxt/>
@@ -37,3 +37,14 @@ export default {
   },
 }
 </script>
+<style>
+.top-header{
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+}
+.navbar{
+  display: flex;
+}
+.navbar-item{
+  flex: 1;
+}
+</style>
