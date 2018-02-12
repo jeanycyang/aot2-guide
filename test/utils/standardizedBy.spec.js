@@ -45,4 +45,23 @@ describe('standardizedBy', function () {
       })
     })
   })
+  describe('standardized by customized function', function () {
+    it('should convert array to a standardized object', function () {
+      expect(standardizedBy(({ id, name }) => `${id}-${name}`, [
+        {
+          id: 1, name: 'A-B-C', p1: null, p2: 2,
+        },
+        {
+          id: 2, name: 'B', p1: 1, p2: 0,
+        },
+      ])).to.deep.equal({
+        '1-A-B-C': {
+          id: 1, name: 'A-B-C', p1: null, p2: 2,
+        },
+        '2-B': {
+          id: 2, name: 'B', p1: 1, p2: 0,
+        },
+      })
+    })
+  })
 })
