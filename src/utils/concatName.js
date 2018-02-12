@@ -1,3 +1,3 @@
 export default function concatName(name) {
-  return name.replace(/\s/, '-')
+  return name.replace(/\s/g, '-')
 }
