@@ -2,20 +2,18 @@
   <main>
     <navbar></navbar>
     <nuxt/>
-    <footer>
-      <p><a href="http://www.gamecity.ne.jp/shingeki2/">All Materials Belong to Koei Tecmo.</a></p>
-      <p>This site is UNOFFICIAL and just made for personal use.</p>
-      <p><a href="https://github.com/jeanycyang/aot2-guide/">Github</a></p>
-    </footer>
+    <bottom-footer></bottom-footer>
   </main>
 </template>
 <script>
 import logo from '../assets/images/logo.png'
 import navbar from '../components/navbar.vue'
+import bottomFooter from '../components/bottom-footer.vue'
 
 export default {
   components: {
     navbar,
+    bottomFooter,
   },
   head() {
     return {
