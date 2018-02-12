@@ -4,6 +4,7 @@
   "description": "Koei game \"Attack on Titan 2\"(2018) Material Collecting Guide UNOFFICIAL",
   "main": "index.js",
   "scripts": {
+    "dev": "nuxt",
     "test": "mocha"
   },
   "repository": {
@@ -29,5 +30,8 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.7.0",
     "mocha": "^5.0.0"
+  },
+  "dependencies": {
+    "nuxt": "^1.3.0"
   }
 }
