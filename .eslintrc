@@ -1,7 +1,9 @@
 ---
 root: true
 
-extends: eslint-config-airbnb-base
+extends:
+  - eslint-config-airbnb-base
+  - plugin:vue/essential
 
 env:
   browser: true
