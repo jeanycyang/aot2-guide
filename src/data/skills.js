@@ -1,7 +1,7 @@
 import standardizedBy from '../utils/standardizedBy'
 import concatName from '../utils/concatName'
 
-const SKILLS = [
+const skills = [
   {
     id: 1,
     name: 'Chain Attack',
@@ -114,4 +114,6 @@ const SKILLS = [
   },
 ]
 
-export default standardizedBy(({ name }) => concatName(name), SKILLS)
+const SKILLS = standardizedBy(({ name }) => concatName(name), skills)
+export const SKILLS_LIST = Object.keys(SKILLS)
+export default SKILLS

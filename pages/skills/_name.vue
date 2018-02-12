@@ -5,14 +5,14 @@
   </div>
 </template>
 <script>
-import skills from '../../src/data/skills'
+import SKILLS from '../../src/data/skills'
 
 export default {
   validate({ params }) {
-    return !!skills[params.name]
+    return !!SKILLS[params.name]
   },
   data() {
-    const skill = skills[this.$route.params.name]
+    const skill = SKILLS[this.$route.params.name]
     return { name: skill.name, description: skill.description }
   },
 }

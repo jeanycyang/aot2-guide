@@ -4,6 +4,7 @@
   "description": "Koei game \"Attack on Titan 2\"(2018) Material Collecting Guide UNOFFICIAL",
   "main": "index.js",
   "scripts": {
+    "build": "nuxt generate",
     "dev": "nuxt",
     "test": "mocha",
     "test:watch": "mocha --watch"
