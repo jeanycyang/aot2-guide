@@ -14,22 +14,23 @@
       </ul>
     </div>
     <ul>
-      <li
+      <character-card
         v-for="concatedName in filter ? filteredCharacters : CHARACTERS_LIST"
         :key="concatedName"
-      >
-        <a :href="'/characters/' + concatedName">
-          {{ CHARACTERS[concatedName].name }}
-        </a>
-      </li>
+        :name="CHARACTERS[concatedName].name"
+        :img="CHARACTERS[concatedName].img"
+        :concatedName="concatedName"
+      ></character-card>
     </ul>
   </div>
 </template>
 <script>
 import CHARACTERS, { CHARACTERS_LIST } from '../../src/data/characters'
 import { RANKS } from '../../src/data/characters.schema'
+import characterCard from '../../components/character-card.vue'
 
 export default {
+  components: { characterCard },
   methods: {
     filterByRank(rank) {
       this.filter = rank
@@ -54,3 +55,5 @@ export default {
   },
 }
 </script>
+<style scoped>
+</style>
