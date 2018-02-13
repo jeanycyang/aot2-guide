@@ -17,16 +17,18 @@
     </div>
     <ul>
       <li
-        v-for="(character, key) in filter ? filteredCharacters : CHARACTERS"
-        :key="key"
+        v-for="concatedName in filter ? filteredCharacters : CHARACTERS_LIST"
+        :key="concatedName"
       >
-        <a :href="'/characters/' + key">{{ character.name }}</a>
+        <a :href="'/characters/' + concatedName">
+          {{ CHARACTERS[concatedName].name }}
+        </a>
       </li>
     </ul>
   </div>
 </template>
 <script>
-import CHARACTERS from '../../src/data/characters'
+import CHARACTERS, { CHARACTERS_LIST } from '../../src/data/characters'
 import { RANKS } from '../../src/data/characters.schema'
 
 export default {
@@ -42,15 +44,14 @@ export default {
     return {
       filter: null,
       CHARACTERS,
+      CHARACTERS_LIST,
       RANKS,
     }
   },
   computed: {
     filteredCharacters() {
       return this.filter ?
-        Object.keys(CHARACTERS)
-          .map(name => CHARACTERS[name].rank === this.filter && CHARACTERS[name]) :
-        []
+        CHARACTERS_LIST.filter(name => CHARACTERS[name].rank === this.filter) : []
     },
   },
 }
