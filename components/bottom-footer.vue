@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   height: 50px;
-  background: var(--mainColor);
+  background: var(--mainBrown);
+  color: white;
 }
 </style>

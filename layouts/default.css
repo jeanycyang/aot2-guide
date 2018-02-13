@@ -1,7 +1,9 @@
 @import '~reset-css/reset.css';
 
 :root{
-  --mainColor: #E0CD8D;
+  --mainGolden: #E0CD8D;
+  --mainGreen: #455632;
+  --mainBrown: #32201F;
   --topNavbarHeight: 40px;
 }
 

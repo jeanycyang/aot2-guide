@@ -14,6 +14,7 @@
 <style scoped>
 .top-header{
   height: var(--topNavbarHeight);
+  background: var(--mainGolden);
   box-shadow: 0 0 2px black;
 }
 .navbar{
