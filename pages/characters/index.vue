@@ -17,7 +17,7 @@
     </div>
     <ul>
       <li
-        v-for="(character, key) in CHARACTERS"
+        v-for="(character, key) in filter ? filteredCharacters : CHARACTERS"
         :key="key"
       >
         <a :href="'/characters/' + key">{{ character.name }}</a>
@@ -44,6 +44,14 @@ export default {
       CHARACTERS,
       RANKS,
     }
+  },
+  computed: {
+    filteredCharacters() {
+      return this.filter ?
+        Object.keys(CHARACTERS)
+          .map(name => CHARACTERS[name].rank === this.filter && CHARACTERS[name]) :
+        []
+    },
   },
 }
 </script>
