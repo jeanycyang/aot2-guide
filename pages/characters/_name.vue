@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ name }} {{ rank }}</h1>
+    <img :src="img" />
     <p>Skills: </p>
   </div>
 </template>
@@ -13,7 +14,11 @@ export default {
   },
   data() {
     const character = CHARACTERS[this.$route.params.name]
-    return { name: character.name, rank: character.rank }
+    return {
+      name: character.name,
+      rank: character.rank,
+      img: character.img,
+    }
   },
   head() {
     return {
