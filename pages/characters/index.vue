@@ -1,19 +1,17 @@
 <template>
   <div>
-    <div v-if="filter === null">
+    <div>
       <ul>
+        <li @click="closeFilter">All</li>
         <li
           v-for="rank in RANKS"
           :key="rank"
           @click="filterByRank(rank)"
+          class="{ isActive: rank === filter }"
         >
           {{ rank }}
         </li>
       </ul>
-    </div>
-    <div v-else>
-      Characters ranked {{ filter }}
-      <a @click="closeFilter">[x] close filter</a>
     </div>
     <ul>
       <li
