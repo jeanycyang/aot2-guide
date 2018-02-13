@@ -15,7 +15,8 @@
     </div>
     <ul>
       <character-card
-        v-for="concatedName in filter ? filteredCharacters : CHARACTERS_LIST"
+        v-for="concatedName in CHARACTERS_LIST"
+        v-if="!filter || CHARACTERS[concatedName].rank === filter"
         :key="concatedName"
         :name="CHARACTERS[concatedName].name"
         :img="CHARACTERS[concatedName].img"
@@ -46,12 +47,6 @@ export default {
       CHARACTERS_LIST,
       RANKS,
     }
-  },
-  computed: {
-    filteredCharacters() {
-      return this.filter ?
-        CHARACTERS_LIST.filter(name => CHARACTERS[name].rank === this.filter) : []
-    },
   },
 }
 </script>
