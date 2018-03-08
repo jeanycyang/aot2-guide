@@ -24,7 +24,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 50%;
-  padding: 1rem;
+  padding: var(--middleSpacing);
   background-color: white;
   color: var(--mainGreen);
   cursor: pointer;
@@ -38,6 +38,6 @@ export default {
 }
 .info{
   flex: 2;
-  padding: 0.5rem;
+  padding: var(--smallSpacing);
 }
 </style>

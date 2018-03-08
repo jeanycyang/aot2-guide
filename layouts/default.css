@@ -5,6 +5,9 @@
   --mainGreen: #455632;
   --mainBrown: #32201F;
   --topNavbarHeight: 40px;
+  --largeSpacing: 24px;
+  --middleSpacing: 16px;
+  --smallSpacing: 8px;
 }
 
 html, body, #__layout, #__nuxt{

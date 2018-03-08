@@ -1,13 +1,13 @@
 <template>
   <div>
     <div>
-      <ul>
+      <ul class="filter">
         <li @click="closeFilter">All</li>
         <li
           v-for="rank in RANKS"
           :key="rank"
           @click="filterByRank(rank)"
-          class="{ isActive: rank === filter }"
+          :class="{ isActive: rank === filter }"
         >
           {{ rank }}
         </li>
@@ -51,4 +51,22 @@ export default {
 }
 </script>
 <style scoped>
+.filter{
+  text-align: center;
+  margin: var(--middleSpacing) 0;
+  padding: var(--smallSpacing);
+}
+.filter li{
+  display: inline-block;
+  margin: 0 var(--smallSpacing);
+  padding: var(--smallSpacing);
+  cursor: pointer;
+  border: 1px solid var(--mainGreen);
+  border-radius: 3px;
+  text-align: center;
+}
+.filter li:hover, .filter li.isActive{
+  background: var(--mainGreen);
+  color: white;
+}
 </style>
