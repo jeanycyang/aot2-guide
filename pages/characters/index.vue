@@ -1,28 +1,30 @@
 <template>
-  <div>
-    <div>
-      <ul class="filter">
-        <li @click="closeFilter">All</li>
-        <li
-          v-for="rank in RANKS"
-          :key="rank"
-          @click="filterByRank(rank)"
-          :class="{ isActive: rank === filter }"
-        >
-          {{ rank }}
-        </li>
+  <div id="page">
+    <div id="container">
+      <div>
+        <ul class="filter">
+          <li @click="closeFilter">All</li>
+          <li
+            v-for="rank in RANKS"
+            :key="rank"
+            @click="filterByRank(rank)"
+            :class="{ isActive: rank === filter }"
+          >
+            {{ rank }}
+          </li>
+        </ul>
+      </div>
+      <ul>
+        <character-card
+          v-for="concatedName in CHARACTERS_LIST"
+          v-if="!filter || CHARACTERS[concatedName].rank === filter"
+          :key="concatedName"
+          :name="CHARACTERS[concatedName].name"
+          :img="CHARACTERS[concatedName].img"
+          :concatedName="concatedName"
+        ></character-card>
       </ul>
     </div>
-    <ul>
-      <character-card
-        v-for="concatedName in CHARACTERS_LIST"
-        v-if="!filter || CHARACTERS[concatedName].rank === filter"
-        :key="concatedName"
-        :name="CHARACTERS[concatedName].name"
-        :img="CHARACTERS[concatedName].img"
-        :concatedName="concatedName"
-      ></character-card>
-    </ul>
   </div>
 </template>
 <script>

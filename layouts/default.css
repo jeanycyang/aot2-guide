@@ -26,6 +26,11 @@ html, body, #__layout, #__nuxt{
   flex: 1 0 auto;
 }
 
+#page > #container{
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
 .top-header, .bottom-footer{
   flex: none;
 }
