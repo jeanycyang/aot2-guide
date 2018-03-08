@@ -1,7 +1,11 @@
 <template>
   <li class="character-card" @click="goToCharacterPage">
-    <img :src="img"/>
-    <h3>{{ name }}</h3>
+    <div class="img">
+      <img :src="img"/>
+    </div>
+    <div class="info">
+      <h3>{{ name }}</h3>
+    </div>
   </li>
 </template>
 <script>
@@ -16,10 +20,24 @@ export default {
 </script>
 <style scoped>
 .character-card{
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
+  padding: 1rem;
   background-color: white;
   color: var(--mainGreen);
   cursor: pointer;
+}
+.img{
+  flex: 1;
+}
+.img img{
+  width: 100px;
+  height: auto;
+}
+.info{
+  flex: 2;
+  padding: 0.5rem;
 }
 </style>
