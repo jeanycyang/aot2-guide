@@ -1,7 +1,7 @@
 <template>
   <li class="character-card">
     <div @click="goToCharacterPage">
-      <div class="img" :style="{ backgroundImage: `url(${img()})` }" />
+      <div class="img" :style="{ backgroundImage: `url(${img})` }" />
       <div class="info">
         <h3>{{ name }}</h3>
       </div>
@@ -11,10 +11,12 @@
 <script>
 export default {
   props: ['cid', 'name', 'concatedName'],
+  data() {
+    return {
+      img: require(`~/assets/images/characters/${this.cid}.jpg`), // eslint-disable-line
+    }
+  },
   methods: {
-    img() {
-      return require(`~/assets/images/characters/${this.cid}.jpg`) // eslint-disable-line
-    },
     goToCharacterPage() {
       this.$router.push(`/characters/${this.concatedName}`)
     },
