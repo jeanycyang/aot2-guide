@@ -21,11 +21,6 @@ export default {
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { property: 'og:title', content: 'Attack on Titan 2 Guide' },
-        { property: 'og:url', content: 'https://jeanycyang.github.io/aot2-guide/' },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:image', content: logo },
-        { property: 'og:description', content: 'Koei Game Attack on Titan 2 Player Guide (UNOFFICIAL)' },
       ],
     }
   },

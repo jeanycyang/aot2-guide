@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "nuxt generate",
-    "dev": "nuxt",
+    "deploy:firebase": "FIREBASE=true npm run build && firebase deploy",
+    "dev": "nuxt -p 4000",
     "test": "mocha",
     "test:watch": "mocha --watch"
   },
