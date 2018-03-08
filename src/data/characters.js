@@ -378,7 +378,6 @@ const characters = ([
 ]).map(character => ({
   ...character,
   concatName: concatName(character.name),
-  img: require(`~/assets/images/characters/${character.id}.jpg`), // eslint-disable-line
 }))
 
 const CHARACTERS = standardizedBy('concatName', characters)

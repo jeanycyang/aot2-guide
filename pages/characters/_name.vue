@@ -17,7 +17,7 @@ export default {
     return {
       name: character.name,
       rank: character.rank,
-      img: character.img,
+      img: require(`~/assets/images/characters/${character.id}.jpg`), // eslint-disable-line
     }
   },
   head() {

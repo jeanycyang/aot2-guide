@@ -20,7 +20,7 @@
           v-if="!filter || CHARACTERS[concatedName].rank === filter"
           :key="concatedName"
           :name="CHARACTERS[concatedName].name"
-          :img="CHARACTERS[concatedName].img"
+          :cid="CHARACTERS[concatedName].id"
           :concatedName="concatedName"
         ></character-card>
       </ul>
