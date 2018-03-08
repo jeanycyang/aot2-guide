@@ -1,10 +1,10 @@
 <template>
-  <li class="character-card" @click="goToCharacterPage">
-    <div class="img">
-      <img :src="img"/>
-    </div>
-    <div class="info">
-      <h3>{{ name }}</h3>
+  <li class="character-card">
+    <div @click="goToCharacterPage">
+      <div class="img" :style="{ backgroundImage: `url('${img}')` }" />
+      <div class="info">
+        <h3>{{ name }}</h3>
+      </div>
     </div>
   </li>
 </template>
@@ -21,23 +21,37 @@ export default {
 <style scoped>
 .character-card{
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
   width: 50%;
   padding: var(--middleSpacing);
   background-color: white;
   color: var(--mainGreen);
+}
+.character-card > div{
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  border: 1px solid var(--mainGreen);
+  border-radius: 3px;
   cursor: pointer;
+  overflow: hidden;
+}
+.character-card > div:hover{
+  background: var(--mainGreen);
+  color: white;
+  transform: scale(1.02);
 }
 .img{
-  flex: 1;
-}
-.img img{
+  height: 100px;
   width: 100px;
-  height: auto;
+  background-size: cover;
 }
 .info{
   flex: 2;
   padding: var(--smallSpacing);
+}
+.info h3{
+  font-size: var(--middleFontSize);
 }
 </style>

@@ -8,6 +8,11 @@
   --largeSpacing: 24px;
   --middleSpacing: 16px;
   --smallSpacing: 8px;
+  --XLargeFontSize: 36px;
+  --largeFontSize: 24px;
+  --middleFontSize: 20px;
+  --normalFontSize: 16px;
+  --smallFontSize: 12px;
 }
 
 html, body, #__layout, #__nuxt{
@@ -29,6 +34,7 @@ html, body, #__layout, #__nuxt{
 #page > #container{
   max-width: 1080px;
   margin: 0 auto;
+  font-size: var(--normalFontSize);
 }
 
 .top-header, .bottom-footer{

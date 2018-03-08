@@ -14,7 +14,7 @@
           </li>
         </ul>
       </div>
-      <ul>
+      <ul class="character-cards">
         <character-card
           v-for="concatedName in CHARACTERS_LIST"
           v-if="!filter || CHARACTERS[concatedName].rank === filter"
@@ -70,5 +70,9 @@ export default {
 .filter li:hover, .filter li.isActive{
   background: var(--mainGreen);
   color: white;
+}
+.character-cards{
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>
