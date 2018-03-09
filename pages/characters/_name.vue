@@ -1,9 +1,31 @@
 <template>
   <div id="page">
     <div id="container">
-      <h1>{{ name }} {{ rank }}</h1>
-      <img :src="img" />
-      <p>Skills: </p>
+      <div class="grids">
+        <div class="grid name">
+          <div>
+            <p class="name-part" v-for="part in splitName" :key="part">
+              {{ part }}
+            </p>
+          </div>
+        </div>
+        <div class="grid character">
+          <div>
+            <img :src="img" />
+          </div>
+        </div>
+        <div class="grid">
+          <div>
+            placeholder
+          </div>
+        </div>
+        <div class="grid rank">
+          <div>
+            <p>rank</p>
+            <h1>{{ rank }}</h1>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +41,7 @@ export default {
     const character = CHARACTERS[this.$route.params.name]
     return {
       name: character.name,
+      splitName: character.name.split(' '),
       rank: character.rank,
       img: require(`~/assets/images/characters/${character.id}.jpg`), // eslint-disable-line
     }
@@ -37,3 +60,43 @@ export default {
   },
 }
 </script>
+<style scoped>
+.grids{
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid{
+  width: 50%;
+  padding: var(--smallSpacing);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid > div{
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name > div{
+  display: flex;
+  flex-direction: column;
+}
+.name-part{
+  font-size: var(--XLargeFontSize);
+}
+.name-part:nth-child(2){
+  text-indent: 6rem;
+}
+.character img{
+  width: 150px;
+}
+.rank p{
+  margin-right: var(--smallSpacing);
+  color: var(--mainGreen);
+}
+.rank h1{
+  font-size: var(--XLargeFontSize);
+}
+</style>
