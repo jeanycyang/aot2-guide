@@ -14,7 +14,7 @@
             <img :src="img" />
           </div>
         </div>
-        <div class="grid">
+        <div class="grid radar">
           <character-radar :abilities="abilities" :canvasSize=200 />
         </div>
         <div class="grid rank">
@@ -70,8 +70,7 @@ export default {
   width: 50%;
   padding: var(--middleSpacing);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  order: 4;
 }
 .grid:nth-of-type(odd){
   justify-content: flex-end;
@@ -106,5 +105,42 @@ export default {
 }
 .rank h1{
   font-size: var(--XLargeFontSize);
+}
+/*
+  postcss doesn't work properly.
+  this variable should only be defined in default.css or other globally injected css file
+*/
+@custom-media --small-viewport (max-width: 768px);
+/* see more: https://github.com/nuxt/nuxt.js/issues/2150 */
+
+@media (--small-viewport) {
+  .grid{
+    padding: var(--smallSpacing);
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .name, .rank{
+    height: 80px;
+  }
+  .character, .radar{
+    width: 100%;
+  }
+  .name{
+    width: 65%;
+    order: 1;
+  }
+  .name > div{
+    flex-direction: row;
+  }
+  .name-part{
+    font-size: var(--largeFontSize);
+  }
+  .name-part:nth-child(2){
+    text-indent: 0.5rem;
+  }
+  .rank{
+    width: 35%;
+    order: 2;
+  }
 }
 </style>
