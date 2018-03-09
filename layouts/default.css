@@ -1,5 +1,3 @@
-@import '~reset-css/reset.css';
-
 :root{
   --mainGolden: #E0CD8D;
   --mainGreen: #455632;
@@ -13,6 +11,10 @@
   --middleFontSize: 20px;
   --normalFontSize: 16px;
   --smallFontSize: 12px;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 html, body, #__layout, #__nuxt{

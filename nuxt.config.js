@@ -5,7 +5,7 @@ const { CHARACTERS_LIST } = require('./src/data/characters')
 
 module.exports = {
   css: [
-    '~assets/css/main.css',
+    'reset-css/reset.css',
   ],
   build: {
     postcss: [
