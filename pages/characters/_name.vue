@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="grid">
-          <character-radar :abilities="abilities" :canvasSize=180 />
+          <character-radar :abilities="abilities" :canvasSize=200 />
         </div>
         <div class="grid rank">
           <div>
@@ -68,14 +68,20 @@ export default {
 }
 .grid{
   width: 50%;
-  padding: var(--smallSpacing);
+  padding: var(--middleSpacing);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.grid:nth-of-type(odd){
+  justify-content: flex-end;
+}
+.grid:nth-of-type(even){
+  justify-content: flex-start;
+}
 .grid > div{
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
