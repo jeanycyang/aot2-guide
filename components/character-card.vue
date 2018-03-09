@@ -47,6 +47,20 @@ export default {
   color: white;
   transform: scale(1.02);
 }
+
+/*
+  postcss doesn't work properly.
+  this variable should only be defined in default.css or other globally injected css file
+*/
+@custom-media --small-viewport (max-width: 768px);
+/* see more: https://github.com/nuxt/nuxt.js/issues/2150 */
+
+@media (--small-viewport) {
+  .character-card{
+    width: 100%;
+  }
+}
+
 .img{
   height: 100px;
   width: 100px;

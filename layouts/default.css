@@ -13,6 +13,8 @@
   --smallFontSize: 12px;
 }
 
+@custom-media --small-viewport (max-width: 768px);
+
 *{
   box-sizing: border-box;
 }
