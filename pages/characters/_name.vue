@@ -101,10 +101,10 @@ export default {
 }
 .rank p{
   margin-right: var(--smallSpacing);
-  color: var(--mainGreen);
 }
 .rank h1{
   font-size: var(--XLargeFontSize);
+  color: var(--mainGreen);
 }
 /*
   postcss doesn't work properly.
