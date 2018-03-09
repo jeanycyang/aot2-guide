@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="grid">
-          <character-radar :abilities="abilities" canvasSize="180" />
+          <character-radar :abilities="abilities" :canvasSize=180 />
         </div>
         <div class="grid rank">
           <div>

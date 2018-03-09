@@ -2,6 +2,13 @@
   <svg :width="canvasSize" :height="canvasSize">
     <polygon class="outer-hexagon" />
     <polygon class="inner-hexagon" />
+    <g class="lines">
+      <line
+        v-for="ability in ABILITIES"
+        :key="ability"
+        class="line"
+      />
+    </g>
   </svg>
 </template>
 <script>
@@ -21,20 +28,6 @@ function drawPolygon({ points, className }) {
 }
 
 // drawPolygon({ points: abilitiesVertices, className: 'abilities-hexagon' })
-// drawPolygon({ points: vertices, className: 'outer-hexagon' })
-// drawPolygon({ points: innerVertices, className: 'inner-hexagon' })
-
-// svg.append('g')
-//   .selectAll('line')
-//   .data(vertices)
-//   .enter()
-//   .append('line')
-//   .attr('class', 'lines')
-//   .attr('x1', d => d.x)
-//   .attr('y1', d => d.y)
-//   .attr('x2', centerPoint.x)
-//   .attr('y2', centerPoint.y)
-
 const rightHorizonPointIndex = 0
 const leftHorizonPointIndex = 3
 
@@ -86,9 +79,19 @@ export default {
     }))
     drawPolygon({ points: vertices, className: 'outer-hexagon' })
     drawPolygon({ points: innerVertices, className: 'inner-hexagon' })
+    const lines = document.getElementsByClassName('line')
+    for (let index = 0; index < lines.length; index += 1) {
+      const line = lines[index]
+      line.setAttribute('x1', vertices[index].x)
+      line.setAttribute('y1', vertices[index].y)
+      line.setAttribute('x2', centerPoint.x)
+      line.setAttribute('y2', centerPoint.y)
+    }
   },
   data() {
-    return {}
+    return {
+      ABILITIES,
+    }
   },
   methods: {
 
@@ -96,7 +99,7 @@ export default {
 }
 </script>
 <style scoped>
-.lines{
+.line{
   stroke-width: 1px;
   stroke: black;
 }
