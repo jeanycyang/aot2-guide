@@ -3,17 +3,20 @@
     <navbar></navbar>
     <nuxt id="page"/>
     <bottom-footer></bottom-footer>
+    <error-report></error-report>
   </main>
 </template>
 <script>
 import logo from '../assets/images/logo.png'
 import navbar from '../components/navbar.vue'
 import bottomFooter from '../components/bottom-footer.vue'
+import errorReport from '../components/error-report.vue'
 
 export default {
   components: {
     navbar,
     bottomFooter,
+    errorReport,
   },
   head() {
     return {
