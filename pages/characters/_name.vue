@@ -15,9 +15,7 @@
           </div>
         </div>
         <div class="grid">
-          <div>
-            placeholder
-          </div>
+          <character-radar :abilities="abilities" canvasSize="180" />
         </div>
         <div class="grid rank">
           <div>
@@ -32,8 +30,10 @@
 <script>
 import CHARACTERS from '../../src/data/characters'
 import { BASE_URL } from '../../src/common'
+import characterRadar from '../../components/character-radar.vue'
 
 export default {
+  components: { characterRadar },
   validate({ params }) {
     return !!CHARACTERS[params.name]
   },
@@ -44,6 +44,7 @@ export default {
       splitName: character.name.split(' '),
       rank: character.rank,
       img: require(`~/assets/images/characters/${character.id}.jpg`), // eslint-disable-line
+      abilities: character.abilities,
     }
   },
   head() {
