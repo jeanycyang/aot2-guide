@@ -55,10 +55,13 @@ export default {
       x: calculatePosition({ coord: 'x', percentage: 0.5, index }),
       y: calculatePosition({ coord: 'y', percentage: 0.5, index }),
     }))
-    const abilitiesVertices = ABILITIES.map((ability, index) => ({
-      x: calculatePosition({ coord: 'x', percentage: this.abilities[ability] / 100, index }),
-      y: calculatePosition({ coord: 'y', percentage: this.abilities[ability] / 100, index }),
-    }))
+    const abilitiesVertices = ABILITIES.map((ability, index) => {
+      const characterAbility = this.abilities[ability] || 0
+      return {
+        x: calculatePosition({ coord: 'x', percentage: characterAbility / 100, index }),
+        y: calculatePosition({ coord: 'y', percentage: characterAbility / 100, index }),
+      }
+    })
 
     function drawPolygon({ points, className }) {
       document.querySelector(`.${className}`).setAttribute('points', points.map(ver => `${ver.x},${ver.y}`))
