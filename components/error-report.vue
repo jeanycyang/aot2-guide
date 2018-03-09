@@ -3,6 +3,7 @@
     <template v-if="show">
       <div class="form">
         <form>
+          <p>Path: {{ path }}</p>
           <input type="text" v-model="title" placeholder="Problem Title" />
         </form>
       </div>
@@ -17,6 +18,12 @@
 </template>
 <script>
 export default {
+  props: {
+    path: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       show: false,

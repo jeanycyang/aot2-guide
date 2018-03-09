@@ -3,7 +3,7 @@
     <navbar></navbar>
     <nuxt id="page"/>
     <bottom-footer></bottom-footer>
-    <error-report></error-report>
+    <error-report :path="path"></error-report>
   </main>
 </template>
 <script>
@@ -17,6 +17,16 @@ export default {
     navbar,
     bottomFooter,
     errorReport,
+  },
+  watch: {
+    '$route.path'(newQuery, oldQuery) {
+      this.path = newQuery
+    }
+  },
+  data() {
+    return {
+      path: this.$route.path,
+    }
   },
   head() {
     return {
