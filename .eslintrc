@@ -11,3 +11,4 @@ env:
 rules:
   import/no-extraneous-dependencies: [2, {"devDependencies": true}]
   semi: [2, "never"]
+  no-nested-ternary: 0

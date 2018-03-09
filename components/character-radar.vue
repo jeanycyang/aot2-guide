@@ -9,6 +9,13 @@
         class="line"
       />
     </g>
+    <g class="texts">
+      <text
+        v-for="ability in ABILITIES"
+        :key="ability"
+        class="text"
+      />
+    </g>
   </svg>
 </template>
 <script>
@@ -31,25 +38,6 @@ function drawPolygon({ points, className }) {
 const rightHorizonPointIndex = 0
 const leftHorizonPointIndex = 3
 
-// const texts = svg.append('g')
-//   .selectAll('text')
-//   .data(vertices)
-//   .enter()
-//   .append('text')
-//   .attr('class', 'texts')
-//   .attr('x', d => d.x - d.id.length * 4)
-//   .attr('y', d => d.y)
-//   .attr('dx', (d, i) => {
-//     if (i === rightHorizonPointIndex) return d.id.length * 4
-//     if (i === leftHorizonPointIndex) return -d.id.length * 4
-//     return 0
-//   })
-//   .attr('dy', (d, i) => {
-//     if (i === rightHorizonPointIndex || i === leftHorizonPointIndex) return 0
-//     return d.y > centerPoint.y ? 20 : -20
-//   })
-//   .text(d => `${d.id} ${levi[d.id]}`)
-
 export default {
   props: {
     abilities: {
@@ -66,7 +54,7 @@ export default {
     const centerPoint = { x: canvasSize / 2, y: canvasSize / 2, id: 'centre' }
     function calculatePosition({ coord = 'x', percentage, index }) {
       const byAngle = coord === 'x' ? Math.cos(toRadians(60 * index)) : Math.sin(toRadians(60 * index))
-      return centerPoint[coord] + sideLength * percentage * byAngle
+      return centerPoint[coord] + (sideLength * percentage * byAngle)
     }
     const vertices = Array(6).fill({}).map((_, index) => ({
       id: ABILITIES[index],
@@ -79,6 +67,7 @@ export default {
     }))
     drawPolygon({ points: vertices, className: 'outer-hexagon' })
     drawPolygon({ points: innerVertices, className: 'inner-hexagon' })
+
     const lines = document.getElementsByClassName('line')
     for (let index = 0; index < lines.length; index += 1) {
       const line = lines[index]
@@ -86,6 +75,20 @@ export default {
       line.setAttribute('y1', vertices[index].y)
       line.setAttribute('x2', centerPoint.x)
       line.setAttribute('y2', centerPoint.y)
+    }
+
+    const texts = document.getElementsByClassName('text')
+    for (let index = 0; index < texts.length; index += 1) {
+      const text = texts[index]
+      const ability = ABILITIES[index]
+      const abilityLengthOffset = ability.length * 2.5
+      text.setAttribute('x', vertices[index].x - abilityLengthOffset)
+      text.setAttribute('y', vertices[index].y)
+      const dx = (index === rightHorizonPointIndex) ? abilityLengthOffset :
+        (index === leftHorizonPointIndex) ? -abilityLengthOffset : 0
+      text.setAttribute('dx', dx)
+      text.setAttribute('dy', 0)
+      text.textContent = `${ability} ${this.abilities[ability] || '??'}`
     }
   },
   data() {
@@ -99,6 +102,9 @@ export default {
 }
 </script>
 <style scoped>
+svg{
+  overflow: visible;
+}
 .line{
   stroke-width: 1px;
   stroke: black;
@@ -112,6 +118,6 @@ polygon{
   stroke: transparent;
 }
 .texts{
-  font-size: 1.1rem;
+  font-size: var(--smallFontSize);
 }
 </style>
