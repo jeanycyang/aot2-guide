@@ -86,6 +86,7 @@ export default {
 }
 .name-part{
   font-size: var(--XLargeFontSize);
+  color: var(--mainGreen);
 }
 .name-part:nth-child(2){
   text-indent: 6rem;

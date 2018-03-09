@@ -1,5 +1,6 @@
 <template>
   <svg :width="canvasSize" :height="canvasSize">
+    <polygon class="abilities-hexagon" />
     <polygon class="outer-hexagon" />
     <polygon class="inner-hexagon" />
     <g class="lines">
@@ -24,19 +25,6 @@ import { ABILITIES } from '../src/data/characters.schema'
 function toRadians(angle) {
   return angle * (Math.PI / 180)
 }
-// const abilitiesVertices = ABILITIES.map((ability, index) => ({
-//   ability,
-//   x: calculatePosition({ coord: 'x', percentage: this.abilities[ability] / 100, index }),
-//   y: calculatePosition({ coord: 'y', percentage: this.abilities[ability] / 100, index }),
-// }))
-
-function drawPolygon({ points, className }) {
-  document.querySelector(`.${className}`).setAttribute('points', points.map(ver => `${ver.x},${ver.y}`))
-}
-
-// drawPolygon({ points: abilitiesVertices, className: 'abilities-hexagon' })
-const rightHorizonPointIndex = 0
-const leftHorizonPointIndex = 3
 
 export default {
   props: {
@@ -52,19 +40,30 @@ export default {
     const canvasSize = this.canvasSize
     const sideLength = canvasSize / 2
     const centerPoint = { x: canvasSize / 2, y: canvasSize / 2, id: 'centre' }
+    const rightHorizonPointIndex = 0
+    const leftHorizonPointIndex = 3
+
     function calculatePosition({ coord = 'x', percentage, index }) {
       const byAngle = coord === 'x' ? Math.cos(toRadians(60 * index)) : Math.sin(toRadians(60 * index))
       return centerPoint[coord] + (sideLength * percentage * byAngle)
     }
-    const vertices = Array(6).fill({}).map((_, index) => ({
-      id: ABILITIES[index],
+    const vertices = ABILITIES.map((_, index) => ({
       x: calculatePosition({ coord: 'x', percentage: 1, index }),
       y: calculatePosition({ coord: 'y', percentage: 1, index }),
     }))
-    const innerVertices = Array(6).fill({}).map((_, index) => ({
+    const innerVertices = ABILITIES.map((_, index) => ({
       x: calculatePosition({ coord: 'x', percentage: 0.5, index }),
       y: calculatePosition({ coord: 'y', percentage: 0.5, index }),
     }))
+    const abilitiesVertices = ABILITIES.map((ability, index) => ({
+      x: calculatePosition({ coord: 'x', percentage: this.abilities[ability] / 100, index }),
+      y: calculatePosition({ coord: 'y', percentage: this.abilities[ability] / 100, index }),
+    }))
+
+    function drawPolygon({ points, className }) {
+      document.querySelector(`.${className}`).setAttribute('points', points.map(ver => `${ver.x},${ver.y}`))
+    }
+    drawPolygon({ points: abilitiesVertices, className: 'abilities-hexagon' })
     drawPolygon({ points: vertices, className: 'outer-hexagon' })
     drawPolygon({ points: innerVertices, className: 'inner-hexagon' })
 
@@ -96,9 +95,6 @@ export default {
       ABILITIES,
     }
   },
-  methods: {
-
-  },
 }
 </script>
 <style scoped>
@@ -114,7 +110,7 @@ polygon{
   stroke: black;
 }
 .abilities-hexagon{
-  fill: DarkTurquoise;
+  fill: var(--mainGolden);
   stroke: transparent;
 }
 .texts{
