@@ -6,7 +6,7 @@
   "scripts": {
     "build": "nuxt generate",
     "deploy:firebase": "FIREBASE=true npm run build && firebase deploy",
-    "dev": "nuxt -p 4000",
+    "dev": "HOST=0.0.0.0 PORT=4000 nuxt",
     "test": "mocha",
     "test:watch": "mocha --watch"
   },
