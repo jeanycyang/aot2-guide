@@ -1,13 +1,11 @@
 <template>
   <div class="error-report">
-    <template v-if="show">
-      <div class="form">
-        <form>
-          <p>Path: {{ path }}</p>
-          <input type="text" v-model="title" placeholder="Problem Title" />
-        </form>
-      </div>
-    </template>
+    <div :class="{ form: true, show: show }">
+      <form>
+        <p>Path: {{ path }}</p>
+        <input type="text" v-model="title" placeholder="Problem Title" />
+      </form>
+    </div>
     <div :class="{ 'error-report-button': true, formOpen: show }" @click="toggle">
       <div>
         <p v-if="show">✖</p>
@@ -78,12 +76,18 @@ export default {
   font-size: var(--largeFontSize);
 }
 .form{
-  z-index: 999;
+  display: none;
+  z-index: -999;
   background: white;
   height: 500px;
   width: 300px;
   max-width: 100%;
+  max-height: 70vh;
   box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
   border-radius: 3px;
+}
+.form.show{
+  display: block;
+  z-index: 999;
 }
 </style>
