@@ -30,11 +30,7 @@ export default {
   },
   methods: {
     toggle() {
-      const show = !this.show
-      // iOS bug: https://stackoverflow.com/questions/46339063/ios-11-safari-bootstrap-modal-text-area-outside-of-cursor
-      if (show) document.getElementsByTagName('body')[0].style = 'position:fixed;width:100%;'
-      else document.getElementsByTagName('body')[0].style = ''
-      this.show = show
+      this.show = !this.show
     },
   },
 }
