@@ -18,6 +18,7 @@
 </template>
 <style scoped>
 .top-header{
+  z-index: 100;
   height: var(--topNavbarHeight);
   background: var(--mainGreen);
   box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
