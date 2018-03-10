@@ -6,7 +6,7 @@
         <input type="text" v-model="title" placeholder="Problem Title" />
       </form>
     </div>
-    <div :class="{ 'error-report-button': true, formOpen: show }" @click="toggle">
+    <div :class="{ 'error-report-button': true, formShow: show }" @click="toggle">
       <div>
         <p v-if="show">✖</p>
         <p v-else>!</p>
@@ -37,7 +37,7 @@ export default {
 </script>
 <style scoped>
 .error-report{
-  position: fixed;
+  position: absolute;
   bottom: var(--largeSpacing);
   right: var(--largeSpacing);
   display: flex;
@@ -65,8 +65,6 @@ export default {
   height: 50px;
   cursor: pointer;
 }
-.error-report-button.formOpen{
-}
 .error-report-button > div{
   display: flex;
   justify-content: center;
@@ -89,5 +87,8 @@ export default {
 .form.show{
   display: block;
   z-index: 999;
+}
+.form input{
+  font-size: var(--middleFontSize);
 }
 </style>
