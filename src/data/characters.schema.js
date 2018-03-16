@@ -1,4 +1,5 @@
 export const RANKS = {
+  'S+': 'S+',
   S: 'S',
   A: 'A',
   B: 'B',

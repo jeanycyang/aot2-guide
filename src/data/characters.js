@@ -29,7 +29,7 @@ const characters = ([{
 }, {
   id: 4,
   name: 'Levi',
-  rank: RANKS.S,
+  rank: RANKS['S+'],
   skills: [],
   abilities: {
     strength: 110, 敏捷性: 105, health: 60, leadership: 70, concentration: 95, dexterity: 85,
@@ -57,7 +57,7 @@ const characters = ([{
 }, {
   id: 8,
   name: 'Christa Lenz',
-  rank: RANKS.B,
+  rank: RANKS.C,
   skills: [],
   abilities: {
     strength: 30, 敏捷性: 55, health: 40, leadership: 90, concentration: 80, dexterity: 80,
